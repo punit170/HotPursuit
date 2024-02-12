@@ -1,0 +1,22 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+
+# Map static resources from the /public folder to the /assets URL path
+# GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+#routes for game
+GET    /startGame                                   controllers.HomeController.startGame
+GET    /game/instructions                           controllers.HomeController.showGameInstructions
+GET    /stopGame                                    controllers.HomeController.stopGame
+PUT    /game/selectplayers                          controllers.HomeController.selectPlayers
+PUT    /game/move/:playerNo/:nodeId                 controllers.HomeController.movePlayer(playerNo: Int, nodeId: Int)
+GET    /game/getStatusData                          controllers.HomeController.getStatusData
+GET    /auto                                        controllers.HomeController.auto
+
+# GET    /game/getStatus                              controllers.HomeController.getStatus
+# GET    /getNodes                                    controllers.HomeController.getNodes
+# PUT    /game/autoMove/:playerNo/:nodeId             controllers.HomeController.autoMovePlayer(playerNo: Int, nodeId: Int)
+

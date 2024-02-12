@@ -1,0 +1,87 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>
+
+&lt;!&ndash; https://www.playframework.com/documentation/latest/SettingsLogger &ndash;&gt;
+
+<!DOCTYPE configuration>
+
+<configuration>
+  <import class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"/>
+  <import class="ch.qos.logback.classic.AsyncAppender"/>
+  <import class="ch.qos.logback.core.FileAppender"/>
+  <import class="ch.qos.logback.core.ConsoleAppender"/>
+
+  <appender name="FILE" class="FileAppender">
+    <file>${application.home:-.}/logs/application.log</file>
+    <encoder class="PatternLayoutEncoder">
+      <charset>UTF-8</charset>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %highlight(%-5level) %cyan(%logger{36}) %magenta(%X{pekkoSource}) %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="STDOUT" class="ConsoleAppender">
+    &lt;!&ndash;
+         On Windows, enabling Jansi is recommended to benefit from color code interpretation on DOS command prompts,
+         which otherwise risk being sent ANSI escape sequences that they cannot interpret.
+         See https://logback.qos.ch/manual/layouts.html#coloring
+    &ndash;&gt;
+    &lt;!&ndash; <withJansi>true</withJansi> &ndash;&gt;
+    <encoder class="PatternLayoutEncoder">
+      <charset>UTF-8</charset>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %highlight(%-5level) %cyan(%logger{36}) %magenta(%X{pekkoSource}) %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="ASYNCFILE" class="AsyncAppender">
+    <appender-ref ref="FILE"/>
+  </appender>
+
+  <appender name="ASYNCSTDOUT" class="AsyncAppender">
+    <appender-ref ref="STDOUT"/>
+  </appender>
+
+  <logger name="play" level="INFO"/>
+  <logger name="application" level="DEBUG"/>
+
+  <root level="WARN">
+    <appender-ref ref="ASYNCFILE"/>
+    <appender-ref ref="ASYNCSTDOUT"/>
+  </root>
+
+</configuration>-->
+<!--
+  ~ /*
+  ~  Copyright (c) 2021. Mark Grechanik and Lone Star Consulting, Inc. All rights reserved.
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software distributed under
+  ~   the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+  ~   either express or implied.  See the License for the specific language governing permissions and limitations under the License.
+  ~  */
+  -->
+
+<configuration scan="true" scanPeriod="60 seconds" trace="true">
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- Daily rollover -->
+      <fileNamePattern> logs/HotPursuit.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+      <maxHistory>100</maxHistory>
+    </rollingPolicy>
+
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- Configure so that it outputs to both console and log file -->
+  <root level="INFO">
+    <appender-ref ref="FILE" />
+    <appender-ref ref="STDOUT" />
+  </root>
+</configuration>
