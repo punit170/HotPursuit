@@ -77,8 +77,8 @@ This project aims to develop a RESTful service that allows clients to play a var
 #### 1. HomeController.scala
 <div style="text-align: justify;">
 This file, `HomeController.scala`, serves as the controller for the project. It defines the behavior of the service, handling incoming requests and generating appropriate responses. It interfaces with `LogicHelperFunctions.scala` for executing business logic. Detailed explanations for each component can be found as comments within `HomeController.scala`.
-</div><br>
-   
+</div>
+
 #### 2. LogicHelperFunctions.scala
 <div style="text-align: justify;">
 `LogicHelperFunctions.scala` contains crucial helper functions that implement various logical operations required by the application. These functions include deserialization, confidence-score generation algorithms, game start procedures, player selection mechanisms, and player movement logic. They are essential for the overall functionality of the project.
@@ -100,7 +100,6 @@ The game employs the following routes, which are part of the URL structure:
 - `GET    /game/getStatusData`          - Retrieves information about a player's own location, the opponent's location nodesIds, and adjacent nodesIds.
 - `GET    /auto`                        - Initiates an automatic gameplay simulation that runs until the game ends.
 ```
-<br>
 
 #### 4. NGStoText.scala
 >`app/assets/AddTo_NetGameSim/NGStoText.scala`
@@ -110,8 +109,9 @@ The game employs the following routes, which are part of the URL structure:
 ###### Generating Input Graph Files 
 > - This project uses case classes from [NetGameSim](https://github.com/0x1DOCD00D/NetGameSim) to define nodes and edges of graphs.
 > - NetGameSim generates ".ngs" and    ".ngs.perturbed" binary files for original and perturbed graphs. To use these files with this project, convert them to ".txt" and ".txt.perturbed" formats using additional code provided in this repository's path: `/app/assets/AddTo_NetGameSim/NGStoText.scala`.
-> - Follow the instructions in the comments of `NGStoText.scala` to integrate this code into NetGameSim's `base directory/src/main/scala/` directory.<br> 
+> - Follow the instructions in the comments of `NGStoText.scala` to integrate this code into NetGameSim's `base directory/src/main/scala/` directory.
 
+<br> 
 
 ## Tasks:
 
