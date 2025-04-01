@@ -7,6 +7,8 @@ An implementation of a variant of the Policeman/Thief graph game using Scala/Pla
    
 This project aims to develop a RESTful service that allows clients to play a variant of the [Policeman Thief game](https://en.wikipedia.org/wiki/Pursuit%E2%80%93evasion) by sending HTTP requests to the service. The game is based on graphs, where nodes represent locations in the game. A Policeman and a Thief are placed on different nodes, with the objective for the Policeman to catch the Thief, while the Thief aims to reach a node with valuable data.
 
+![graphic cover image for the hot pursuit game depicting a graph with a policeman and a thief](./project-hot_pursuit-graphic-img.png)
+
 </div>
 
 ## Requirements
