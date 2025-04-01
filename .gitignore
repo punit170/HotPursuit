@@ -1,5 +1,8 @@
 logs
 target
+project/project
+project/target
+Feedback.txt
 /.bsp
 /.idea
 /.idea_modules
